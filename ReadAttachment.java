@@ -7,7 +7,7 @@ import java.util.Properties;
 class ReadAttachment{
     public static void main(String [] args)throws Exception{
 
-        String host="mail.java.com";
+        String host="pop.gmail.com";
         final String user="ksravya1411@gmail.com";
         final String password="xxxxx";//change accordingly
         Properties properties = System.getProperties();
@@ -20,7 +20,7 @@ class ReadAttachment{
                     }
                 });
 
-        Store store = session.getStore("pop3");
+        Store store = session.getStore("pop");
         store.connect(host,user,password);
 
         Folder folder = store.getFolder("inbox");
