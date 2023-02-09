@@ -20,7 +20,7 @@ class ReadAttachment{
                     }
                 });
 
-        Store store = session.getStore("pop");
+        Store store = session.getStore("pop3");
         store.connect(host,user,password);
 
         Folder folder = store.getFolder("inbox");
