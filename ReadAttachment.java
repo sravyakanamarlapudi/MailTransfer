@@ -8,7 +8,7 @@ class ReadAttachment{
     public static void main(String [] args)throws Exception{
 
         String host="mail.java.com";
-        final String user="sravya@gmail.com";
+        final String user="ksravya1411@gmail.com";
         final String password="xxxxx";//change accordingly
         Properties properties = System.getProperties();
         properties.setProperty("mail.smtp.host",host );
