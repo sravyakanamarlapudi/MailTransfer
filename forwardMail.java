@@ -30,8 +30,7 @@ public class ForwardMail
             store.connect("pop.gmail.com", "ksravya1411@gmail.com", "Sricharan@2011");
             Folder folder = store.getFolder("inbox");
             folder.open(Folder.READ_ONLY);
-            BufferedReader reader = new BufferedReader(new InputStreamReader(
-                    System.in));
+            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
             Message[] msgarr = folder.getMessages();
             if (msgarr.length != 0) {
                 for (int i = 0, n = msgarr.length; i < n; i++) {
@@ -40,13 +39,11 @@ public class ForwardMail
                     if (from != null) {
                         System.out.println("From: " + from);
                     }
-                    String msgrply = InternetAddress.toString(msgarrs
-                            .getReplyTo());
+                    String msgrply = InternetAddress.toString(msgarr.getReplyTo());
                     if (msgrply != null) {
                         System.out.println("Reply the mail " + msgrply);
                     }
-                    String tomsg = InternetAddress.toString(msgarrs
-                            .getRecipients(Message.RecipientType.TO));
+                    String tomsg = InternetAddress.toString(msgarr.getRecipients(Message.RecipientType.TO));
                     if (tomsg != null) {
                         System.out.println("To: " + tomsg);
                     }
@@ -62,8 +59,7 @@ public class ForwardMail
                     String str = reader.readLine();
                     if ("Y".equals(str) || "y".equals(str)) {
                         Message msgfwd = new MimeMessage(sess);
-                        msgfwd.setRecipients(Message.RecipientType.TO,
-                                InternetAddress.parse(from));
+                        msgfwd.setRecipients(Message.RecipientType.TO InternetAddress.parse(from));
                         msgfwd.setSubject("Fwd: " + msgarrs.getSubject());
                         msgfwd.setFrom(new InternetAddress(tomsg));
                         MimeBodyPart msgpart = new MimeBodyPart();
