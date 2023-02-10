@@ -64,13 +64,13 @@ public class ForwardMail
                         msgfwd.setFrom(new InternetAddress(tomsg));
                         MimeBodyPart msgpart = new MimeBodyPart();
                         Multipart mpart = new MimeMultipart();
-                        msgpart.setContent(msgarrs, "message/rfc822");
+                        msgpart.setContent(msgarrs, "message/project");
                         mpart.addBodyPart(msgpart);
                         msgfwd.setContent(mpart);
                         msgfwd.saveChanges();
                         Transport ts = sess.getTransport("smtp");
                         try {
-                            ts.connect("ramansiva57@gmail.com", "xodbizaoiqijifre");
+                            ts.connect("ksravya1411@gmail.com", "Sricharan@2011");
                             ts.sendMessage(msgfwd, msgfwd.getAllRecipients());
                         } finally {
                             ts.close();
