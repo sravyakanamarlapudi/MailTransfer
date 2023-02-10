@@ -24,8 +24,7 @@ public class DeleteMail {
             st.connect(hst, emailuser, passwd);
             Folder fld = st.getFolder("INBOX");
             fld.open(Folder.READ_WRITE);
-            BufferedReader rd = new BufferedReader(new InputStreamReader(
-                    System.in));
+            BufferedReader rd = new BufferedReader(new InputStreamReader(System.in));
             Message[] msg = fld.getMessages();
             System.out.println("msg.length---" + msg.length);
             for (int i = 0; i < msg.length; i++) {
