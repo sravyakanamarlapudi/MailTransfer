@@ -62,7 +62,7 @@ public class ReplyMail {
         }
     }
 
-    private class SMTPAuthenticator extends avax.mail.Authenticator {
+    private class SMTPAuthenticator extends javax.mail.Authenticator {
         public PasswordAuthentication getPasswordAuthentication() {
             return new PasswordAuthentication(username, password);
         }
