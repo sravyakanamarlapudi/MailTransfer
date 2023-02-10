@@ -29,8 +29,7 @@ public class ReplyMail {
             Message[] messages = folder.getMessages();
             System.out.println("Total Message - " + messages.length);
 
-            BufferedReader reader =
-                    new BufferedReader(new InputStreamReader(System.in));
+            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
             for (int i = 0; i < messages.length; i++) {
                 Message emailMessage = messages[i];
@@ -40,24 +39,20 @@ public class ReplyMail {
                 System.out.println("From - " + emailMessage.getFrom()[0]);
             }
 
-            System.out.print("Enter email number to " +
-                    "which you want to reply: ");
+            System.out.print("Enter email number to " +"which you want to reply: ");
             String emailNo = reader.readLine();
 
-            Message emailMessage =
-                    folder.getMessage(Integer.parseInt(emailNo) - 1);
+            Message emailMessage = folder.getMessage(Integer.parseInt(emailNo) - 1);
 
             Message mimeMessage = new MimeMessage(session);
             mimeMessage = (MimeMessage) emailMessage.reply(false);
             mimeMessage.setFrom(new InternetAddress(username));
             mimeMessage.setText(repliedText);
             mimeMessage.setSubject("RE: " + mimeMessage.getSubject());
-            mimeMessage.addRecipient(Message.RecipientType.TO,
-                    emailMessage.getFrom()[0]);
+            mimeMessage.addRecipient(Message.RecipientType.TO,emailMessage.getFrom()[0]);
 
             Transport.send(mimeMessage);
-            System.out.println("Email message " +
-                    "replied successfully.");
+            System.out.println("Email message " + "replied successfully.");
 
             folder.close(false);
             mailStore.close();
@@ -67,12 +62,9 @@ public class ReplyMail {
         }
     }
 
-    private class SMTPAuthenticator extends
-            javax.mail.Authenticator {
-        public PasswordAuthentication
-        getPasswordAuthentication() {
-            return new PasswordAuthentication(username,
-                    password);
+    private class SMTPAuthenticator extends avax.mail.Authenticator {
+        public PasswordAuthentication getPasswordAuthentication() {
+            return new PasswordAuthentication(username, password);
         }
     }
 
